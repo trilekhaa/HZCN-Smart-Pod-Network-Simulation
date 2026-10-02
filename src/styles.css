@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-bg: #070807;
+  --color-surface: #101410;
+  --color-surface-2: #161c16;
+  --color-elevated: #1c2418;
+  --color-fg: #eef3e6;
+  --color-muted: #8b9580;
+  --color-subtle: #6a7364;
+  --color-accent: #d4ff00;
+  --color-accent-fg: #121600;
+  --color-accent-dim: #9fbf00;
+  --color-border: #27301c;
+  --color-ok: #4fba6a;
+  --color-warn: #e0c04a;
+  --color-danger: #e05656;
+  --color-ring: #d4ff00;
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --shadow-border: 0 0 0 1px color-mix(in oklab, var(--color-accent) 14%, transparent);
+  --shadow-border-hover: 0 0 0 1px color-mix(in oklab, var(--color-accent) 28%, transparent);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    background-image: radial-gradient(
+      ellipse 80% 50% at 12% -10%,
+      color-mix(in oklab, var(--color-accent) 7%, transparent),
+      transparent 55%
+    );
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--color-accent) 30%, transparent) transparent;
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.glow-pod {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-accent) 45%, transparent),
+    0 0 18px color-mix(in oklab, var(--color-accent) 22%, transparent);
+}
+
+.glow-pod-warn {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-warn) 50%, transparent),
+    0 0 16px color-mix(in oklab, var(--color-warn) 18%, transparent);
+}
+
+.glow-pod-danger {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-danger) 50%, transparent),
+    0 0 16px color-mix(in oklab, var(--color-danger) 20%, transparent);
+}
+
+@keyframes topo-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.topo-flow {
+  animation: topo-dash 1.6s linear infinite;
+}
+
+.panel {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-border);
+}
+
+.panel:hover {
+  box-shadow: var(--shadow-border-hover);
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
