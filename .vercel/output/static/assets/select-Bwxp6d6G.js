@@ -1,1 +1,0 @@
-import{S as e,m as t,x as n}from"./simulation-store-6S7jGPFb.js";e();var r=n();function i({className:e,children:n,...i}){return(0,r.jsx)(`select`,{className:t(`h-10 w-full rounded-md border border-border bg-bg px-3 text-sm text-fg`,`focus-visible:border-accent/50 focus-visible:outline-none`,e),...i,children:n})}export{i as t};
